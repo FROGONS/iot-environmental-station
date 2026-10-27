@@ -41,8 +41,19 @@ Para garantir a durabilidade das baterias nas estações remotas, o firmware imp
 - **Isolamento de Pinos:** Conversão de barramentos de comunicação (TX/RX) para estados de entrada (alta impedância) durante o repouso para evitar drenagem de corrente parasita.
 - **Sleep Mode do LoRa:** Manipulação dos pinos `M0` e `M1` com retenção de estado (`gpio_hold_en`) durante o *Deep Sleep* do ESP32.
 
-## Estrutura do Código
+### Metodologia de Medição (PPK2)
+O consumo de corrente do sistema foi rigorosamente validado utilizando um **Nordic Power Profiler Kit II (PPK2)**. Desenvolvemos uma suíte de scripts em Python para automatizar a coleta de dados de longa duração (24h+):
+* **Filtros de Hardware:** Implementação via software dos filtros de *spike* da Nordic (compensação de troca de faixa de ganho).
+* **Logging Contínuo:** Geração de relatórios CSV iterativos com cálculos de média, mediana e picos máximos por milissegundo.
 
-- `QualidadeAgua.ino`: Firmware do nó de qualidade da água (Sensores I2C/SPI/OneWire/Analógicos + LoRa + Deep Sleep).
-- `EstacaoMeteorologica.ino`: Firmware do nó meteorológico (Parsing Serial + LoRa + Deep Sleep).
-- `Rec_EstacaoEQualidade.ino`: Firmware do Gateway Central (Recepção LoRa + Roteamento + HTTPS REST Request).
+## Arquivos de Referência
+
+###  Firmwares (C++)
+* `QualidadeAgua.ino`: Firmware do nó de qualidade da água (Sensores + LoRa + Deep Sleep).
+* `EstacaoMeteorologica.ino`: Firmware do nó meteorológico (Parsing Serial + LoRa + Deep Sleep).
+* `Rec_EstacaoEQualidade.ino`: Firmware do Gateway Central (Recepção LoRa + Roteamento + HTTPS).
+
+### 📈 Scripts de Validação de Energia (Python)
+* `script.py`: Ferramenta principal de aquisição contínua do PPK2 com decodificação bruta e *spike filter*.
+* `filtro_nordic.py`: Validação cruzada e análise comparativa de filtros de hardware/software da Nordic.
+* `resumo.py` / `metadata.py`: Scripts auxiliares de extração e sumarização de dados (.csv para console).
