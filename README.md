@@ -35,6 +35,11 @@ A rede é composta por três nós principais:
   - Anemômetro e Pluviômetro
 - **Integração Cloud:** Google Apps Script (Webhooks p/ Google Sheets)
 
+
+## Foto do sistema
+
+<img>QualidadeAgua.jpg</img>
+
 ## Power Profiling & Eficiência
 
 Para garantir a durabilidade das baterias nas estações remotas, o firmware implementa rigorosas rotinas de economia de energia:
