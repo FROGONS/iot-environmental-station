@@ -38,7 +38,7 @@ A rede é composta por três nós principais:
 
 ## Foto do sistema
 
-![Hardware da Estação IoT com ESP32 e LoRa](assets/estacao-iot-montada.jpg)
+<img src="assets/QualidadeAgua.jpg" width="600" alt="Hardware da Estação IoT com ESP32 e LoRa">
 
 ## Power Profiling & Eficiência
 
