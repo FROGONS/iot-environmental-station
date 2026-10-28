@@ -1,0 +1,59 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+
+<dict>
+
+<key>Label</key>
+
+<string>com.ppk2.log</string>
+
+<key>ProgramArguments</key>
+
+<array>
+
+<string>/usr/bin/caffeinate</string>
+
+<string>-i</string>
+
+<string>/Users/iot/ppk/.venv/bin/python</string>
+
+<string>/Users/iot/ppk/script.py</string>
+
+</array>
+
+<key>WorkingDirectory</key>
+
+<string>/Users/iot/ppk</string>
+
+<key>StartCalendarInterval</key>
+
+<dict>
+
+<key>Hour</key>
+
+<integer>11</integer>
+
+<key>Minute</key>
+
+<integer>15</integer>
+
+</dict>
+
+<key>StandardOutPath</key>
+
+<string>/Users/iot/ppk/ppk2.out.log</string>
+
+<key>StandardErrorPath</key>
+
+<string>/Users/iot/ppk/ppk2.err.log</string>
+
+</dict>
+
+</plist>
+
+(.venv) iot@iMac-237 ppk % cat ~/Library/LaunchAgents/com.ppk2.log.plist
+
+<?xml version="1.0" encoding="UTF-8"?> 
