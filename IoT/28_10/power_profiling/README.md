@@ -1,17 +1,17 @@
-# ⚡ Validação Energética e Profiling (PPK2)
+# Validação Energética e Profiling (PPK2)
 
 Esta pasta contém a infraestrutura de testes de consumo de energia dos nós sensores (ESP32/LoRa) utilizando o **Nordic Power Profiler Kit II (PPK2)**. 
 
 Os scripts automatizam a coleta contínua de dados, aplicam processamento digital de sinais (DSP) para filtragem de ruídos (spike filter) e geram relatórios estatísticos.
 
-## 📁 Arquitetura dos Scripts
+## Arquitetura dos Scripts
 
 * `script.py`: Motor principal de coleta. Roda em background por até 24h contínuas, decodificando a telemetria serial do PPK2 e salvando os logs em CSV.
 * `resumo.py`: Script de análise de dados (NumPy). Consome os CSVs diários e consolida métricas críticas (médias, medianas, picos de microampères e perda de pacotes).
 * `filtro_nordic.py`: Validação de DSP. Reproduz matematicamente o *spike filter* oficial do aplicativo da Nordic, garantindo a integridade dos dados coletados cruamente.
 * `com.ppk2.log.plist`: Tarefa do `launchd` (macOS) utilizando `caffeinate` para agendar a execução autônoma das medições sem interrupção pelo gerenciamento de energia do SO.
 
-## 🚀 Como utilizar
+## Como utilizar
 
 ### 1. Pré-requisitos
 Instale as dependências Python necessárias:
